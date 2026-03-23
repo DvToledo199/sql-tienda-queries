@@ -104,19 +104,48 @@ JOIN fabricante
 ON producto.codigo_fabricante = fabricante.codigo;
 
 -- 22. Llista tots els productes amb nom, preu i nom del fabricant (nombre del fabricante) ordenats alfabèticament.
-
+SELECT producto.nombre, producto.precio, fabricante.nombre
+FROM producto
+JOIN fabricante
+ON producto.codigo_fabricante = fabricante.codigo;
+ORDER BY producto.nombre;
 
 -- 23. Retorna una llista amb el codi del producte, nom del producte, codi del fabricant (codigo fabricante) i nom del fabricant (nombre fabricante), de tots els productes de la base de dades.
-
+SELECT p.codigo,
+      p.nombre,
+      p.codigo_fabricante,
+      f.nombre AS nombre_fabricante
+FROM producto p
+JOIN fabricante f
+ON p.codigo_fabricante = f.codigo;
 
 -- 24. Retorna el nom, el preu i el nom del fabricant (fabricante), del producte més barat.
-
+SELECT p.nombre,
+      p.precio,
+      f.nombre AS fabricante
+FROM producto p
+JOIN fabricante f
+ON p.codigo_fabricante = f.codigo
+ORDER BY p.precio
+LIMIT 1;
 
 -- 25. Retorna el nom del producte, el preu i el nom del seu fabricant (fabricante), del producte més car.
-
+SELECT p.nombre,
+      p.precio,
+      f.nombre AS fabricante
+FROM producto p
+JOIN fabricante f
+ON p.codigo_fabricante = f.codigo
+ORDER BY p.precio DESC
+LIMIT 1;
 
 -- 26. Retorna una llista amb nom i preu de tots els productes del fabricant Lenovo.
-
+SELECT p.nombre,
+      p.precio
+FROM producto p
+JOIN fabricante f
+ON p.codigo_fabricante = f.codigo
+WHERE f.nombre = 'lenovo';
 
 -- 27. Retorna una llista amb nom i preu de tots els productes del fabricant Crucial que tinguin un preu major que 200 €
 
