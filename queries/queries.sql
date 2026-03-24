@@ -42,7 +42,7 @@ FROM producto;
 
 -- 10. Llista els noms i els preus de tots els productes (precio truncado) de la taula producto, truncant el valor del preu per a mostrar-lo sense cap xifra decimal.
 SELECT nombre,
-      TRUNCATE(precio, 0) as precio
+      TRUNCATE(precio, 0) AS 'precio truncado'
 FROM producto;
 
 -- 11. Mostra una llista amb els codis dels fabricants que apareixen a la taula producto, incloent possibles repeticions.
@@ -102,7 +102,7 @@ JOIN fabricante
 ON producto.codigo_fabricante = fabricante.codigo;
 
 -- 22. Llista tots els productes amb nom, preu i nom del fabricant (nombre del fabricante) ordenats alfabèticament.
-SELECT producto.nombre, producto.precio, fabricante.nombre
+SELECT producto.nombre, producto.precio, fabricante.nombre AS 'nombre del fabricante'
 FROM producto
 JOIN fabricante
 ON producto.codigo_fabricante = fabricante.codigo
@@ -111,8 +111,8 @@ ORDER BY producto.nombre;
 -- 23. Retorna una llista amb el codi del producte, nom del producte, codi del fabricant (codigo fabricante) i nom del fabricant (nombre fabricante), de tots els productes de la base de dades.
 SELECT p.codigo,
       p.nombre,
-      p.codigo_fabricante,
-      f.nombre AS nombre_fabricante
+      p.codigo_fabricante AS 'codigo fabricante',
+      f.nombre AS 'nombre fabricante'
 FROM producto p
 JOIN fabricante f
 ON p.codigo_fabricante = f.codigo;
