@@ -16,8 +16,7 @@ SELECT nombre,
       precio AS precio_usd
 FROM producto;
 
--- 5. Llista el nom dels productes, el preu en euros i el preu en dòlars estatunidencs (amb un tipus de canvi de 1 € = 1,1 $ i arrodonint el resultat a dues xifres decimals). 
--- Utilitza els següents àlies per a les columnes: nom del producte, euros, dòlars.
+-- 5. Llista el nom dels productes, el preu en euros i el preu en dòlars estatunidencs (amb un tipus de canvi de 1 € = 1,1 $ i arrodonint el resultat a dues xifres decimals). Utilitza els següents àlies per a les columnes: nom del producte, euros, dòlars.
 SELECT nombre AS `nom del producte`,
       precio AS euros,
       ROUND(precio * 1.1, 2) AS `dòlars`
@@ -31,8 +30,7 @@ FROM producto;
 SELECT LOWER(nombre) AS nombre, precio
 FROM producto;
 
--- 8. Llista el nom de tots els fabricants en una columna, i en una altra columna 
--- obtingui en majúscules els dos primers caràcters del nom del fabricant (iniciales).
+-- 8. Llista el nom de tots els fabricants en una columna, i en una altra columna obtingui en majúscules els dos primers caràcters del nom del fabricant (iniciales).
 SELECT nombre,
       UPPER(LEFT(nombre, 2)) AS iniciales
 FROM fabricante;
@@ -193,8 +191,7 @@ JOIN fabricante f
 ON p.codigo_fabricante = f.codigo
 WHERE f.nombre LIKE '%w%';
 
--- 32. Retorna un llistat amb el nom del producte, el seu preu i el nom del fabricant (fabricante), per a tots els productes amb un preu igual o superior a 180 €. 
--- Ordena els resultats, primer pel preu en ordre descendent i després pel nom del producte en ordre ascendent.
+-- 32. Retorna un llistat amb el nom del producte, el seu preu i el nom del fabricant (fabricante), per a tots els productes amb un preu igual o superior a 180 €. Ordena els resultats, primer pel preu en ordre descendent i després pel nom del producte en ordre ascendent.
 SELECT p.nombre,
       p.precio,
       f.nombre AS fabricante
@@ -210,8 +207,7 @@ FROM fabricante f
 JOIN producto p
 ON f.codigo = p.codigo_fabricante;
 
--- 34. Retorna un llistat de tots els fabricants que existeixen en la base de dades, juntament amb els productes que té cadascun d'ells. 
--- Inclou també els fabricants que no tenen cap producte. Mostra el nom del fabricant (fabricante) i el nom del producte (producto).
+-- 34. Retorna un llistat de tots els fabricants que existeixen en la base de dades, juntament amb els productes que té cadascun d'ells. Inclou també els fabricants que no tenen cap producte. Mostra el nom del fabricant (fabricante) i el nom del producte (producto).
 SELECT f.nombre AS fabricante,
        p.nombre AS producto
 FROM fabricante f
